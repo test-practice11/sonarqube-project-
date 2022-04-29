@@ -2,21 +2,33 @@ pipeline {
      agent {label 'linux-node'}
      stages {
          stage('clean'){
+             tools {
+                 maven 'Maven3.8.5'
+             }
              steps {
                  sh "mvn clean"
              }
          }
          stage('compile') {
+             tools {
+                 maven 'maven3.8.1'
+             }
              steps {
                  sh "mvn compile"
              }
          }
          stage('test'){
+             tools{
+                 maven 'maven3.8.4'
+             }
              steps {
                  sh "mvn test"
              }
          }
          stage('install'){
+             tools {
+                 maven 'maven3.8.1'
+             }
              steps {
                  sh "mvn install"
              }
