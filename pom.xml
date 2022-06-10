@@ -20,32 +20,20 @@
      </plugin>
     </plugins>
    </build>
-    <dependencies>
-     <dependency>
-       <groupId>junit</groupId>
-       <artifactId>junit</artifactId>
-       <version>3.8.1</version>
-       <scope>test</scope>
-     </dependency>
-    </dependencies>
- </project>
-<!-- https://mvnrepository.com/artifact/org.sonarsource.scanner.maven/sonar-maven-plugin -->
-<dependency>
-  <groupId>org.sonarsource.scanner.maven</groupId>
-  <artifactId>sonar-maven-plugin</artifactId>
-  <version>3.2</version>
-</dependency>
-  <profiles>
-   <profile>
-    <id>sonar</id>
-    <activation>
-     <activeByDefault>true</activeByDefault>
-    </activation>
- <properties>
-<!-- Optional URL to server. Default value is http://localhost:9000 -->
-<sonar.host.url>
-http://13.127.125.37:9000
-</sonar.host.url>
-</properties>
-</profile>
-</profiles>
+  <settings>
+    <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Enter your SonarQube instance URL here -->
+                <sonar.host.url>http://localhost:9000</sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
+</settings>
