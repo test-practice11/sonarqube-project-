@@ -17,14 +17,26 @@
      <plugin>
           <artifactId>maven-compiler-plugin</artifactId>
           <groupId>org.apache.maven.plugins</groupId>
-          <version>3.0</version>
+          <version>3.3.0.603</version>
      </plugin>
-     <plugin>
-          <groupId>org.codehaus.mojo</groupId>
-          <artifactId>sonar-maven-plugin</artifactId>
-          <version>3.0.2</version>
-      </plugin>
     </plugins>
+    <settings>
+    <pluginGroups>
+        <pluginGroup>org.sonarsource.scanner.maven</pluginGroup>
+    </pluginGroups>
+    <profiles>
+        <profile>
+            <id>sonar</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <!-- Enter your SonarQube instance URL here -->
+                <sonar.host.url>http://13.127.125.37:9000/</sonar.host.url>
+            </properties>
+        </profile>
+     </profiles>
+</settings>
    </build>
   <dependencies>
     <dependency>
